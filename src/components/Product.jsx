@@ -1,6 +1,22 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { cartActions } from '../store/cart-slice'
 
 const Product = (props) => {
+
+
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(cartActions.addToCart({
+      name: props.item.name,
+      id: props.item.id,
+      price: props.item.price
+    }))
+  }
+
+
   return (
     <div className='shadow-lg p-4 flex flex-col gap-3 '>
       <div className='w-60 h-40 '>
@@ -11,7 +27,7 @@ const Product = (props) => {
         <h2>Price: {props.item.price}$</h2>
       </div>
       <div className='flex justify-center'>
-        <button className='bg-black text-white p-2 rounded-lg font-semibold'>Add to Cart</button>
+        <button onClick={addToCart} className='bg-black text-white p-2 rounded-lg font-semibold'>Add to Cart</button>
       </div>
 
     </div>
