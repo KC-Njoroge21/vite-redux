@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from './pages/Login'
 import { useSelector } from 'react-redux'
-import Product from './pages/Product'
+import AllProducts from './pages/AllProducts'
 
 const App = () => {
 
@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <div>
-      {isLoggedIn ? <Product /> : <Login /> }
+      {isLoggedIn ? <AllProducts /> : <Login /> }
     </div>
   )
 }
