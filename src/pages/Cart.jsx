@@ -1,0 +1,25 @@
+import React from 'react'
+import { useSelector } from 'react-redux'
+import CartProduct from '../components/CartProduct'
+
+const Cart = () => {
+
+  const itemList = useSelector(state => state.cart.itemList)
+
+  const cartItems = itemList.map((item, index) => {
+    return (
+      <CartProduct item={item} key={index} />
+    )
+  })
+
+  return (
+    <div>
+      <h2 className='text-center text-3xl font-semibold'>
+        Your Cart
+      </h2>
+      {itemList.length <= 0 ? <div className='flex justify-center text-2xl text-gray-500 font-semibold mt-5'>You cart is empty!</div> : <div className='flex flex-col gap-4'>{cartItems}</div>}
+    </div>
+  )
+}
+
+export default Cart
