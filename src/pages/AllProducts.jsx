@@ -14,6 +14,8 @@ const AllProducts = () => {
 
   const showCart = useSelector(state => state.cart.showCart)
 
+  
+
   return (
     <div className='flex flex-col gap-4'>
       <Header />
